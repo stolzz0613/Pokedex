@@ -4,8 +4,8 @@ import React from 'react';
 function App() {
   return (
     <div className="App">
-      <h1>POKEDEX </h1>
-    </div>
+      <h1>What Pokemon are you looking for?</h1>
+    </div >
   );
 }
 
