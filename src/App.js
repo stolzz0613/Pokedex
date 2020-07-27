@@ -1,11 +1,14 @@
 import React from 'react';
 import Header from "./components/Header"
+import Form from "./components/Form";
 
 function App() {
   return (
-    <div className=" header text-center">
+    <div>
       <Header />
-      <p className=" text-monospace text-center font-weight-bold text-wrap">What Pokemon are you looking for?</p>
+      <div className="container">
+        <Form />
+      </div>
     </div >
   );
 }
