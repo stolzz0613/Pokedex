@@ -16,7 +16,6 @@ function App() {
 
   useEffect(() => {
     const getList = async () => {
-
       await Axios
         .get(url)
         .then(response => {
@@ -29,7 +28,7 @@ function App() {
       header.scrollIntoView({ behavior: "smooth" })
     }
     getList();
-  }, [url])
+  }, [page,url])
 
   const componente =
     (spinner)
@@ -50,7 +49,6 @@ function App() {
           onClick={() => {
             if (page === 0) return;
             const number = page - 20;
-            setPokemon([])
             setPage(number)
           }}
         >&laquo; Atras</button>
@@ -59,18 +57,19 @@ function App() {
           className="btn btn-secondary ml-3"
           onClick={() => {
             const number = 20 + page;
-            setPokemon([])
             setPage(number)
           }}
         >Adelante &raquo;</button>
       </div>
-      : <button
-        type="button"
-        className="btn btn-primary ml-3"
-        onClick={() => {
-          window.location.reload(false);
-        }}
-      >Home</button>
+      : <div className="w-100 text-center mt-4">
+        <button
+          type="button"
+          className="btn btn-info mt-4 ml-3"
+          onClick={() => {
+            window.location.reload(false);
+          }}
+        >Home</button>
+      </div>
 
 
   return (
@@ -88,7 +87,6 @@ function App() {
       <div className="container mt-3">
         {componente}
       </div>
-
       {botones}
     </div>
   );

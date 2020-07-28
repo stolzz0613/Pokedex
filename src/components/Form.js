@@ -18,11 +18,12 @@ const Form = ({ setPokemon, setSpinner, setError, setPage, setButtons }) => {
             .catch(err => {
                 console.log(err)
                 setError(true);
-                setButtons(false);
+                setButtons(true);
             })
     }
 
     const obtenerPokemon = async () => {
+        setPokemon([])
         setSpinner(true)
         const url = `https://pokeapi.co/api/v2/pokemon-species/${busquedaPkm}/`
         await Axios.get(url)
@@ -30,10 +31,9 @@ const Form = ({ setPokemon, setSpinner, setError, setPage, setButtons }) => {
                 pkm = [];
                 pkm.push({ url: `https://pokeapi.co/api/v2/pokemon-species/${response.data.id}/` });
                 setPokemon(pkm);
-                setSpinner(false);
                 setError(false);
                 setButtons(false);
-                setPage(0);
+                setSpinner(false);
             })
             .catch(err => {
                 pkm = [];
