@@ -11,7 +11,7 @@ function App() {
 
   useEffect(() => {
     const getList = async () => {
-      const url = `https://pokeapi.co/api/v2/generation/2/?limit=20&offset=0"`
+      const url = `https://pokeapi.co/api/v2/generation/2/`
       await Axios
         .get(url)
         .then(response => {

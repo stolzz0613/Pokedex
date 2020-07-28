@@ -4,7 +4,7 @@ import pokeball from "../assets/pokeball.png"
 
 const Form = () => {
 
-    const [pokemon, setPokemon] = useState("");
+    const [busquedaPkm, setBusquedaPkm] = useState("");
 
     return (
         <form className="form-row align-items-center">
@@ -13,7 +13,7 @@ const Form = () => {
                     type="text"
                     className="form-control w-75 mx-auto "
                     placeholder="Ingrese el nombre del pokemón"
-                    onChange={e => setPokemon(e.target.value)}
+                    onChange={e => setBusquedaPkm(e.target.value)}
                 />
             </div>
             <div className="icon col-md-1 ml-md-n5">
