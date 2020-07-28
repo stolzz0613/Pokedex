@@ -11,6 +11,7 @@ function App() {
   const [pokemon, setPokemon] = useState([]);
   const [error, setError] = useState(false);
   const [page, setPage] = useState(0);
+  const [buttons, setButtons] = useState(true);
   const url = `https://pokeapi.co/api/v2/pokemon-species/?limit=20&offset=${page}`;
 
   useEffect(() => {
@@ -41,7 +42,7 @@ function App() {
       />
 
   const botones =
-    (!error)
+    (buttons)
       ? <div className="w-100 text-center mt-4">
         <button
           type="button"
@@ -80,6 +81,8 @@ function App() {
           setPokemon={setPokemon}
           setSpinner={setSpinner}
           setError={setError}
+          setPage={setPage}
+          setButtons={setButtons}
         />
       </div>
       <div className="container mt-3">
