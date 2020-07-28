@@ -1,34 +1,44 @@
 import React, { useState, useEffect } from 'react';
-import Axios from "axios"
+import Axios from "axios";
+import MissingNo from "../assets/MissingNo.png";
 
-const Pokemon = ({ pkm }) => {
+const Pokemon = ({ pkm, setSpinner, error }) => {
 
     const [pkmInfo, setPkmInfo] = useState({
         sprite: "",
         name: "",
         number: "",
     });
-
     useEffect(() => {
-        const getList = async () => {
-            await Axios
-                .get(pkm.url)
-                .then(response => {
-                    Axios.get(`https://pokeapi.co/api/v2/pokemon/${response.data.id}/`)
-                        .then(response => {
-                            setPkmInfo({
-                                sprite: response.data.sprites.front_default,
-                                name: response.data.name,
-                                number: response.data.id
+        if (!error) {
+            const getList = async () => {
+                await Axios
+                    .get(pkm.url)
+                    .then(response => {
+                        Axios.get(`https://pokeapi.co/api/v2/pokemon/${response.data.id}/`)
+                            .then(response => {
+                                setPkmInfo({
+                                    sprite: response.data.sprites.front_default,
+                                    name: response.data.name,
+                                    number: response.data.id
+                                })
                             })
-                        })
-                })
-                .catch(err => {
-                    console.log(err)
-                })
+                    })
+                    .catch(err => {
+                        console.log(err)
+                    })
+            }
+            getList();
+        } else {
+            setPkmInfo({
+                sprite: MissingNo,
+                name: "No se encontro",
+                number: "??"
+            })
+            setSpinner(false)
         }
-        getList();
-    }, [pkm])
+
+    }, [pkm, setSpinner, error])
 
 
     return (

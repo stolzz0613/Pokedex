@@ -9,8 +9,9 @@ function App() {
 
   const [spinner, setSpinner] = useState(false);
   const [pokemon, setPokemon] = useState([]);
+  const [error, setError] = useState(false);
   const [page, setPage] = useState(0);
-  const url = `https://pokeapi.co/api/v2/pokemon-species/?limit=20&offset=${page}`
+  const url = `https://pokeapi.co/api/v2/pokemon-species/?limit=20&offset=${page}`;
 
   useEffect(() => {
     const getList = async () => {
@@ -35,6 +36,8 @@ function App() {
       : <List
         pokemon={pokemon}
         setSpinner={setSpinner}
+        setError={setError}
+        error={error}
       />
 
 
@@ -45,6 +48,7 @@ function App() {
         <Form
           setPokemon={setPokemon}
           setSpinner={setSpinner}
+          setError={setError}
         />
       </div>
       <div className="container mt-3">

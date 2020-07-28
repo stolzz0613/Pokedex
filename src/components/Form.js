@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import pokeball from "../assets/pokeball.png"
 import Axios from "axios";
 
-const Form = ({ setPokemon, setSpinner }) => {
+const Form = ({ setPokemon, setSpinner, setError }) => {
     let pkm = []
     const [busquedaPkm, setBusquedaPkm] = useState("");
 
@@ -11,12 +11,19 @@ const Form = ({ setPokemon, setSpinner }) => {
         const url = `https://pokeapi.co/api/v2/pokemon-species/${busquedaPkm}/`
         await Axios.get(url)
             .then(response => {
-                pkm = []
-                pkm.push({ url: `https://pokeapi.co/api/v2/pokemon-species/${response.data.id}/` })
-                setPokemon(pkm)
-                setSpinner(false)
+                pkm = [];
+                pkm.push({ url: `https://pokeapi.co/api/v2/pokemon-species/${response.data.id}/` });
+                setPokemon(pkm);
+                setSpinner(false);
             })
-            .catch(err => { console.log(err) })
+            .catch(err => {
+                pkm = [];
+                pkm.push({ url: `https://pokeapi.co/api/v2/pokemon-species/1/` });
+                setPokemon(pkm);
+                setSpinner(false);
+                setError(true);
+                console.log(err)
+            })
     }
 
     return (
