@@ -6,17 +6,15 @@ import List from "./components/List";
 
 function App() {
 
-  const [region, setRegion] = useState("");
   const [pokemon, setPokemon] = useState([]);
 
   useEffect(() => {
     const getList = async () => {
-      const url = `https://pokeapi.co/api/v2/generation/2/`
+      const url = `https://pokeapi.co/api/v2/pokemon-species/?limit=20&offset=600`
       await Axios
         .get(url)
         .then(response => {
-          setRegion(response.data.main_region.name)
-          setPokemon(response.data.pokemon_species)
+          setPokemon(response.data.results)
         })
         .catch(err => {
           console.log(err)
@@ -32,8 +30,7 @@ function App() {
         <Form />
       </div>
       <div className="container mt-3">
-        <List
-          region={region}
+      <List
           pokemon={pokemon}
         />
       </div>
