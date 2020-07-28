@@ -42,18 +42,17 @@ const Pokemon = ({ pkm, setSpinner, error }) => {
 
 
     return (
-        <div className="col-md-3 mt-4 mx-auto">
-            <div className="card">
+
+        <div className="col-md-4 mx-auto">
+            <div className="card" style={{ position: "relative", height: "70px", margin: "10px" }}>
                 <img
                     src={pkmInfo.sprite}
-                    className="card-img-top"
+                    style={{ position: "absolute", bottom: "0px", right: "0" }}
                     alt={pkm.name}
                 />
-                <div className="card-body">
-                    <h5 className="card-title">{pkmInfo.name}</h5>
-                    <p className="card-text">
-                        {pkmInfo.number}
-                    </p>
+                <div className="row text-justify" style={{margin:"10px"}}>
+                    <h5 >{pkmInfo.name}</h5>
+                    <p style={{marginLeft:"10px"}}>#{pkmInfo.number}</p>
                 </div>
             </div>
         </div>

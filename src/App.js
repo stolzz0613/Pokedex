@@ -84,7 +84,7 @@ function App() {
           setButtons={setButtons}
         />
       </div>
-      <div className="container mt-3">
+      <div className="container mt-3 w-100">
         {componente}
       </div>
       {botones}
