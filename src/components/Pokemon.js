@@ -32,7 +32,7 @@ const Pokemon = ({ pkm, setSpinner, error }) => {
         } else {
             setPkmInfo({
                 sprite: MissingNo,
-                name: "No se encontro",
+                name: "No se encontro el pokemon",
                 number: "??"
             })
             setSpinner(false)

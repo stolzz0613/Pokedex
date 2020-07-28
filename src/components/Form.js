@@ -5,6 +5,19 @@ import Axios from "axios";
 const Form = ({ setPokemon, setSpinner, setError }) => {
     let pkm = []
     const [busquedaPkm, setBusquedaPkm] = useState("");
+    const url = `https://pokeapi.co/api/v2/pokemon-species/?limit=20&offset=0`;
+   
+    const getList = async () => {
+        await Axios
+            .get(url)
+            .then(response => {
+                setPokemon(response.data.results)
+                setError(false)
+            })
+            .catch(err => {
+                console.log(err)
+            })
+    }
 
     const obtenerPokemon = async () => {
         setSpinner(true)
@@ -15,6 +28,7 @@ const Form = ({ setPokemon, setSpinner, setError }) => {
                 pkm.push({ url: `https://pokeapi.co/api/v2/pokemon-species/${response.data.id}/` });
                 setPokemon(pkm);
                 setSpinner(false);
+                setError(false)
             })
             .catch(err => {
                 pkm = [];
@@ -36,13 +50,16 @@ const Form = ({ setPokemon, setSpinner, setError }) => {
                     onChange={e => setBusquedaPkm(e.target.value.toLowerCase())}
                 />
             </div>
+
             <div className="icon col-md-1 ml-md-n5">
                 <img
                     src={pokeball}
                     width="70px"
                     alt="icon"
                     type="submit"
-                    onClick={() => busquedaPkm ? obtenerPokemon() : null}
+                    onClick={() => busquedaPkm
+                        ? obtenerPokemon()
+                        : getList()}
                 />
             </div>
         </form >

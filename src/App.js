@@ -40,21 +40,9 @@ function App() {
         error={error}
       />
 
-
-  return (
-    <div>
-      <Header />
-      <div className="container">
-        <Form
-          setPokemon={setPokemon}
-          setSpinner={setSpinner}
-          setError={setError}
-        />
-      </div>
-      <div className="container mt-3">
-        {componente}
-      </div>
-      <div className="w-100 text-center mt-4">
+  const botones =
+    (!error)
+      ? <div className="w-100 text-center mt-4">
         <button
           type="button"
           className="btn btn-secondary mr-3"
@@ -75,7 +63,31 @@ function App() {
           }}
         >Adelante &raquo;</button>
       </div>
-    </div >
+      : <button
+        type="button"
+        className="btn btn-primary ml-3"
+        onClick={() => {
+          window.location.reload(false);
+        }}
+      >Home</button>
+
+
+  return (
+    <div>
+      <Header />
+      <div className="container">
+        <Form
+          setPokemon={setPokemon}
+          setSpinner={setSpinner}
+          setError={setError}
+        />
+      </div>
+      <div className="container mt-3">
+        {componente}
+      </div>
+
+      {botones}
+    </div>
   );
 }
 
