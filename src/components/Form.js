@@ -2,19 +2,21 @@ import React, { useState } from 'react';
 import pokeball from "../assets/pokeball.png"
 import Axios from "axios";
 
-const Form = ({ setPokemon }) => {
+const Form = ({ setPokemon, setSpinner }) => {
     let pkm = []
     const [busquedaPkm, setBusquedaPkm] = useState("");
 
-    const obtenerPokemon = () => {
+    const obtenerPokemon = async () => {
+        setSpinner(true)
         const url = `https://pokeapi.co/api/v2/pokemon-species/${busquedaPkm}/`
-        Axios.get(url)
+        await Axios.get(url)
             .then(response => {
+                pkm = []
                 pkm.push({ url: `https://pokeapi.co/api/v2/pokemon-species/${response.data.id}/` })
                 setPokemon(pkm)
+                setSpinner(false)
             })
             .catch(err => { console.log(err) })
-        console.log(pkm)
     }
 
     return (
@@ -24,7 +26,7 @@ const Form = ({ setPokemon }) => {
                     type="text"
                     className="form-control w-75 mx-auto "
                     placeholder="Ingrese el nombre del pokemón"
-                    onChange={e => setBusquedaPkm(e.target.value)}
+                    onChange={e => setBusquedaPkm(e.target.value.toLowerCase())}
                 />
             </div>
             <div className="icon col-md-1 ml-md-n5">

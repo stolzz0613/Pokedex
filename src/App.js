@@ -3,9 +3,11 @@ import Axios from "axios";
 import Header from "./components/Header"
 import Form from "./components/Form";
 import List from "./components/List";
+import Spinner from "./components/Spinner";
 
 function App() {
 
+  const [spinner, setSpinner] = useState(false);
   const [pokemon, setPokemon] = useState([]);
   const [page, setPage] = useState(0);
   const url = `https://pokeapi.co/api/v2/pokemon-species/?limit=20&offset=${page}`
@@ -27,39 +29,45 @@ function App() {
     getList();
   }, [url])
 
+  const componente =
+    (spinner)
+      ? <Spinner />
+      : <List
+        pokemon={pokemon}
+        setSpinner={setSpinner}
+      />
+
+
   return (
     <div>
       <Header />
       <div className="container">
         <Form
           setPokemon={setPokemon}
+          setSpinner={setSpinner}
         />
       </div>
       <div className="container mt-3">
-        <List
-          pokemon={pokemon}
-        />
+        {componente}
       </div>
       <div className="w-100 text-center mt-4">
         <button
           type="button"
-          class="btn btn-secondary mr-3"
+          className="btn btn-secondary mr-3"
           onClick={() => {
             if (page === 0) return;
             const number = page - 20;
             setPokemon([])
             setPage(number)
-            console.log(page)
           }}
         >&laquo; Atras</button>
         <button
           type="button"
-          class="btn btn-secondary ml-3"
+          className="btn btn-secondary ml-3"
           onClick={() => {
             const number = 20 + page;
             setPokemon([])
             setPage(number)
-            console.log(page)
           }}
         >Adelante &raquo;</button>
       </div>

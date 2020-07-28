@@ -8,7 +8,7 @@ const Pokemon = ({ pkm }) => {
         name: "",
         number: "",
     });
- 
+
     useEffect(() => {
         const getList = async () => {
             await Axios
