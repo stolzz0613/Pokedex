@@ -7,10 +7,12 @@ import List from "./components/List";
 function App() {
 
   const [pokemon, setPokemon] = useState([]);
+  const [page, setPage] = useState(0);
+  const url = `https://pokeapi.co/api/v2/pokemon-species/?limit=20&offset=${page}`
 
   useEffect(() => {
     const getList = async () => {
-      const url = `https://pokeapi.co/api/v2/pokemon-species/?limit=20&offset=600`
+
       await Axios
         .get(url)
         .then(response => {
@@ -21,7 +23,7 @@ function App() {
         })
     }
     getList();
-  }, [])
+  }, [url])
 
   return (
     <div>
@@ -30,9 +32,25 @@ function App() {
         <Form />
       </div>
       <div className="container mt-3">
-      <List
+        <List
           pokemon={pokemon}
         />
+      </div>
+      <div className="w-100 text-center mt-4">
+        <button
+          type="button"
+          class="btn btn-secondary mr-3"
+        >Atras</button>
+        <button
+          type="button"
+          class="btn btn-secondary ml-3"
+          onClick={() => {
+            const number = 20 + page;
+            setPokemon([])
+            setPage(number)
+            console.log(page)
+          }}
+        >Adelante</button>
       </div>
     </div >
   );

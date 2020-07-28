@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import Axios from "axios"
 
 const Pokemon = ({ pkm }) => {
-    console.log(pkm)
+
     const [pkmInfo, setPkmInfo] = useState({
         sprite: "",
         name: "",
@@ -11,15 +11,17 @@ const Pokemon = ({ pkm }) => {
 
     useEffect(() => {
         const getList = async () => {
-            const url = `https://pokeapi.co/api/v2/pokemon/${pkm.name}/`
             await Axios
-                .get(url)
+                .get(pkm.url)
                 .then(response => {
-                    setPkmInfo({
-                        sprite: response.data.sprites.front_default,
-                        name: response.data.name,
-                        number: response.data.id
-                    })
+                    Axios.get(`https://pokeapi.co/api/v2/pokemon/${response.data.id}/`)
+                        .then(response => {
+                            setPkmInfo({
+                                sprite: response.data.sprites.front_default,
+                                name: response.data.name,
+                                number: response.data.id
+                            })
+                        })
                 })
                 .catch(err => {
                     console.log(err)
