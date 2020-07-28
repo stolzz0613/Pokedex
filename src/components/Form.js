@@ -1,10 +1,21 @@
 import React, { useState } from 'react';
 import pokeball from "../assets/pokeball.png"
+import Axios from "axios";
 
-
-const Form = () => {
-
+const Form = ({ setPokemon }) => {
+    let pkm = []
     const [busquedaPkm, setBusquedaPkm] = useState("");
+
+    const obtenerPokemon = () => {
+        const url = `https://pokeapi.co/api/v2/pokemon-species/${busquedaPkm}/`
+        Axios.get(url)
+            .then(response => {
+                pkm.push({ url: `https://pokeapi.co/api/v2/pokemon-species/${response.data.id}/` })
+                setPokemon(pkm)
+            })
+            .catch(err => { console.log(err) })
+        console.log(pkm)
+    }
 
     return (
         <form className="form-row align-items-center">
@@ -22,9 +33,7 @@ const Form = () => {
                     width="70px"
                     alt="icon"
                     type="submit"
-                    onClick={() => {
-                        console.log("click")
-                    }}
+                    onClick={() => busquedaPkm ? obtenerPokemon() : null}
                 />
             </div>
         </form >

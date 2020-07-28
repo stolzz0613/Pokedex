@@ -8,7 +8,7 @@ const Pokemon = ({ pkm }) => {
         name: "",
         number: "",
     });
-
+ 
     useEffect(() => {
         const getList = async () => {
             await Axios
@@ -32,7 +32,7 @@ const Pokemon = ({ pkm }) => {
 
 
     return (
-        <div className="col-md-3 mt-4">
+        <div className="col-md-3 mt-4 mx-auto">
             <div className="card">
                 <img
                     src={pkmInfo.sprite}

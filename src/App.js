@@ -21,6 +21,8 @@ function App() {
         .catch(err => {
           console.log(err)
         })
+      const header = document.querySelector(".header");
+      header.scrollIntoView({ behavior: "smooth" })
     }
     getList();
   }, [url])
@@ -29,7 +31,9 @@ function App() {
     <div>
       <Header />
       <div className="container">
-        <Form />
+        <Form
+          setPokemon={setPokemon}
+        />
       </div>
       <div className="container mt-3">
         <List
@@ -40,7 +44,14 @@ function App() {
         <button
           type="button"
           class="btn btn-secondary mr-3"
-        >Atras</button>
+          onClick={() => {
+            if (page === 0) return;
+            const number = page - 20;
+            setPokemon([])
+            setPage(number)
+            console.log(page)
+          }}
+        >&laquo; Atras</button>
         <button
           type="button"
           class="btn btn-secondary ml-3"
@@ -50,7 +61,7 @@ function App() {
             setPage(number)
             console.log(page)
           }}
-        >Adelante</button>
+        >Adelante &raquo;</button>
       </div>
     </div >
   );
