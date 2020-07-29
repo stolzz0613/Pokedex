@@ -1,6 +1,7 @@
 import React from 'react';
 import Sprites from "./stats/Sprites";
 import Stats from "./stats/Stats";
+import Description from "./stats/Description";
 import close from "../assets/close.png"
 
 
@@ -41,6 +42,9 @@ const Modal = ({ setModal, modalInfo }) => {
                         />
                     </div>
                 </div>
+                <Description
+                    modalInfo={modalInfo}
+                />
             </div>
         </div >
     );

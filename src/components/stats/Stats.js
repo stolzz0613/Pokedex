@@ -3,7 +3,7 @@ import React from 'react';
 const Stats = ({ modalInfo }) => {
 
     const stats = modalInfo.pkmInfo.response.data.stats
-    console.log(`${stats[0].base_stat}%`)
+    
     return (
         <div className="container">
             <p className="text-center font-weight-bolder text-dark mb-0">STATS</p>
@@ -19,6 +19,7 @@ const Stats = ({ modalInfo }) => {
                             aria-valuemin="0"
                             aria-valuemax="100"
                         >
+                            {stats[0].base_stat}
                         </div>
                     </div>
                 </div>
@@ -35,6 +36,7 @@ const Stats = ({ modalInfo }) => {
                             aria-valuemin="0"
                             aria-valuemax="100"
                         >
+                            {stats[1].base_stat}
                         </div>
                     </div>
                 </div>
@@ -51,6 +53,7 @@ const Stats = ({ modalInfo }) => {
                             aria-valuemin="0"
                             aria-valuemax="100"
                         >
+                            {stats[2].base_stat}
                         </div>
                     </div>
                 </div>
@@ -67,6 +70,7 @@ const Stats = ({ modalInfo }) => {
                             aria-valuemin="0"
                             aria-valuemax="100"
                         >
+                            {stats[3].base_stat}
                         </div>
                     </div>
                 </div>
@@ -83,6 +87,7 @@ const Stats = ({ modalInfo }) => {
                             aria-valuemin="0"
                             aria-valuemax="100"
                         >
+                            {stats[4].base_stat}
                         </div>
                     </div>
                 </div>
@@ -99,6 +104,7 @@ const Stats = ({ modalInfo }) => {
                             aria-valuemin="0"
                             aria-valuemax="100"
                         >
+                            {stats[5].base_stat}
                         </div>
                     </div>
                 </div>
