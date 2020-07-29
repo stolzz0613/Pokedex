@@ -11,7 +11,10 @@ const Pokemon = ({ pkm, setSpinner, error }) => {
         name: "",
         number: "",
     });
-    const [color, setColor] = useState("");
+    const [color, setColor] = useState({
+        color1: "",
+        color2: ""
+    });
 
     const colors = {
         fire: '#FDDFDF',
@@ -21,11 +24,11 @@ const Pokemon = ({ pkm, setSpinner, error }) => {
         ground: '#f4e7da',
         rock: '#d5d5d4',
         fairy: '#fceaff',
-        poison: '#98d7a5',
+        poison: '#c0a6de',
         bug: '#f8d5a3',
         dragon: '#97b3e6',
-        psychic: '#eaeda1',
-        flying: '#F5F5F5',
+        psychic: '#dfa1ed',
+        flying: '#e6fafa',
         fighting: '#E6E0D4',
         normal: '#F5F5F5'
     };
@@ -44,7 +47,17 @@ const Pokemon = ({ pkm, setSpinner, error }) => {
                                     number: response.data.id,
                                     types: response.data.types
                                 })
-                                setColor(colors[response.data.types[0].type.name])
+                                if (response.data.types.length > 1) {
+                                    setColor({
+                                        color1: colors[response.data.types[0].type.name],
+                                        color2: colors[response.data.types[1].type.name]
+                                    })
+                                } else {
+                                    setColor({
+                                        color1: colors[response.data.types[0].type.name],
+                                        color2: "#fff"
+                                    })
+                                }
                             })
                     })
                     .catch(err => {
@@ -69,7 +82,7 @@ const Pokemon = ({ pkm, setSpinner, error }) => {
                     position: "relative",
                     height: "100px",
                     margin: "10px",
-                    backgroundColor: color
+                    background: `linear-gradient(45deg,${color.color1}, ${color.color2})`
                 }}>
 
                 <img
@@ -88,6 +101,7 @@ const Pokemon = ({ pkm, setSpinner, error }) => {
                 </div>
                 <Types
                     pkmInfo={pkmInfo}
+                    colors={colors}
                 />
             </div>
         </div>
