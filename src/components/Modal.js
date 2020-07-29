@@ -6,10 +6,7 @@ import close from "../assets/close.png"
 
 const Modal = ({ setModal, modalInfo }) => {
 
-    console.log(modalInfo)
     const color = modalInfo.color
-
-
 
     return (
         <div className="mx-auto h-50 p-4" style={{ width: "2vm" }}>

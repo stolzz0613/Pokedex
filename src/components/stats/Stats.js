@@ -1,16 +1,20 @@
 import React from 'react';
 
 const Stats = ({ modalInfo }) => {
+
+    const stats = modalInfo.pkmInfo.response.data.stats
+    console.log(`${stats[0].base_stat}%`)
     return (
-        <div class="container">
+        <div className="container">
+            <p className="text-center font-weight-bolder text-dark mb-0">STATS</p>
             <div className="row align-items-center">
                 <p className="col-md-2 mb-0" style={{ fontSize: "1.5vw" }}>HP</p>
                 <div className="col-md-10">
                     <div className="progress">
                         <div
-                            className="align-middle progress-bar progress-bar-striped"
+                            className="bg-primary progress-bar progress-bar-striped"
                             role="progressbar"
-                            style={{ width: "10%" }}
+                            style={{ width: `${stats[0].base_stat}%` }}
                             aria-valuenow="10"
                             aria-valuemin="0"
                             aria-valuemax="100"
@@ -24,9 +28,9 @@ const Stats = ({ modalInfo }) => {
                 <div className="col-md-10">
                     <div className="progress">
                         <div
-                            className="align-middle progress-bar progress-bar-striped"
+                            className="bg-secondary progress-bar progress-bar-striped"
                             role="progressbar"
-                            style={{ width: "10%" }}
+                            style={{ width: `${stats[1].base_stat}%` }}
                             aria-valuenow="10"
                             aria-valuemin="0"
                             aria-valuemax="100"
@@ -40,9 +44,9 @@ const Stats = ({ modalInfo }) => {
                 <div className="col-md-10">
                     <div className="progress">
                         <div
-                            className="align-middle progress-bar progress-bar-striped"
+                            className="bg-info progress-bar progress-bar-striped"
                             role="progressbar"
-                            style={{ width: "10%" }}
+                            style={{ width: `${stats[2].base_stat}%` }}
                             aria-valuenow="10"
                             aria-valuemin="0"
                             aria-valuemax="100"
@@ -56,9 +60,9 @@ const Stats = ({ modalInfo }) => {
                 <div className="col-md-10">
                     <div className="progress">
                         <div
-                            className="align-middle progress-bar progress-bar-striped"
+                            className="bg-warning progress-bar progress-bar-striped"
                             role="progressbar"
-                            style={{ width: "10%" }}
+                            style={{ width: `${stats[3].base_stat}%` }}
                             aria-valuenow="10"
                             aria-valuemin="0"
                             aria-valuemax="100"
@@ -72,9 +76,9 @@ const Stats = ({ modalInfo }) => {
                 <div className="col-md-10">
                     <div className="progress">
                         <div
-                            className="align-middle progress-bar progress-bar-striped"
+                            className="bg-danger progress-bar progress-bar-striped"
                             role="progressbar"
-                            style={{ width: "10%" }}
+                            style={{ width: `${stats[4].base_stat}%` }}
                             aria-valuenow="10"
                             aria-valuemin="0"
                             aria-valuemax="100"
@@ -88,9 +92,9 @@ const Stats = ({ modalInfo }) => {
                 <div className="col-md-10">
                     <div className="progress">
                         <div
-                            className="align-middle progress-bar progress-bar-striped"
+                            className="bg-success progress-bar progress-bar-striped"
                             role="progressbar"
-                            style={{ width: "10%" }}
+                            style={{ width: `${stats[5].base_stat}%` }}
                             aria-valuenow="10"
                             aria-valuemin="0"
                             aria-valuemax="100"
