@@ -13,6 +13,7 @@ const Form = ({ setPokemon, setSpinner, setError, setPage, setButtons }) => {
             .then(response => {
                 setPokemon(response.data.results);
                 setError(false);
+                setPage(0);
                 setButtons(true);
             })
             .catch(err => {
