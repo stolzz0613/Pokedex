@@ -8,8 +8,8 @@ const Stats = ({ modalInfo }) => {
         <div className="container">
             <p className="text-center font-weight-bolder text-dark mb-0">STATS</p>
             <div className="row align-items-center">
-                <p className="col-md-2 mb-0" style={{ fontSize: "1.5vw" }}>HP</p>
-                <div className="col-md-10">
+                <p className="col-md-12 mb-0" style={{ fontSize: "1.5vw" }}>HP</p>
+                <div className="col-md-12">
                     <div className="progress">
                         <div
                             className="bg-primary progress-bar progress-bar-striped"
@@ -24,8 +24,8 @@ const Stats = ({ modalInfo }) => {
                 </div>
             </div>
             <div className="row align-items-center">
-                <p className="col-md-2 mb-0" style={{ fontSize: "1.5vw" }}>Attack</p>
-                <div className="col-md-10">
+                <p className="col-md-12 mb-0" style={{ fontSize: "1.5vw" }}>Attack</p>
+                <div className="col-md-12">
                     <div className="progress">
                         <div
                             className="bg-secondary progress-bar progress-bar-striped"
@@ -40,8 +40,8 @@ const Stats = ({ modalInfo }) => {
                 </div>
             </div>
             <div className="row align-items-center">
-                <p className="col-md-2 mb-0" style={{ fontSize: "1.5vw" }}>Defense</p>
-                <div className="col-md-10">
+                <p className="col-md-12 mb-0" style={{ fontSize: "1.5vw" }}>Defense</p>
+                <div className="col-md-12">
                     <div className="progress">
                         <div
                             className="bg-info progress-bar progress-bar-striped"
@@ -56,8 +56,8 @@ const Stats = ({ modalInfo }) => {
                 </div>
             </div>
             <div className="row align-items-center">
-                <p className="col-md-2 mb-0" style={{ fontSize: "1.5vw" }}>Speed</p>
-                <div className="col-md-10">
+                <p className="col-md-12 mb-0" style={{ fontSize: "1.5vw" }}>Speed</p>
+                <div className="col-md-12">
                     <div className="progress">
                         <div
                             className="bg-warning progress-bar progress-bar-striped"
@@ -72,8 +72,8 @@ const Stats = ({ modalInfo }) => {
                 </div>
             </div>
             <div className="row align-items-center">
-                <p className="col-md-2 mb-0" style={{ fontSize: "1.5vw" }}>Sp Atk</p>
-                <div className="col-md-10">
+                <p className="col-md-12 mb-0" style={{ fontSize: "1.5vw" }}>Sp Atk</p>
+                <div className="col-md-12">
                     <div className="progress">
                         <div
                             className="bg-danger progress-bar progress-bar-striped"
@@ -88,8 +88,8 @@ const Stats = ({ modalInfo }) => {
                 </div>
             </div>
             <div className="row align-items-center">
-                <p className="col-md-2 mb-0" style={{ fontSize: "1.5vw" }}>Sp Def</p>
-                <div className="col-md-10">
+                <p className="col-md-12 mb-0" style={{ fontSize: "1.5vw" }}>Sp Def</p>
+                <div className="col-md-12">
                     <div className="progress">
                         <div
                             className="bg-success progress-bar progress-bar-striped"

@@ -9,7 +9,7 @@ const Modal = ({ setModal, modalInfo }) => {
     const color = modalInfo.color
 
     return (
-        <div className="mx-auto h-50 p-4" style={{ width: "2vm" }}>
+        <div className="h-50 p-4" style={{ width: "2vm" }}>
             <div
                 className="card shadow"
                 style={{
@@ -29,17 +29,20 @@ const Modal = ({ setModal, modalInfo }) => {
                     <p className="font-weight-bold text-dark list-inline-item">{modalInfo.pkmInfo.name.toUpperCase()}</p>
                     <p className="list-inline-item text-dark" style={{ marginLeft: "10px" }}>#{modalInfo.pkmInfo.number}</p>
                 </div>
-
-                <Sprites
-                    modalInfo={modalInfo}
-                />
-                <div className="mx-auto h-100 p-2" style={{ width: "90%" }}>
-                    <Stats
-                        modalInfo={modalInfo}
-                    />
+                <div className="row align-items-center">
+                    <div className="col-md-6">
+                        <Sprites
+                            modalInfo={modalInfo}
+                        />
+                    </div>
+                    <div className="col-md-4 m-4 p-2" style={{ width: "100%" }}>
+                        <Stats
+                            modalInfo={modalInfo}
+                        />
+                    </div>
                 </div>
             </div>
-        </div>
+        </div >
     );
 }
 
