@@ -8,7 +8,10 @@ const Types = ({ pkmInfo, colors }) => {
         type2: ""
     });
 
-    const [color, setColor] = useState("");
+    const [color, setColor] = useState({
+        color1: "",
+        color2: ""
+    });
 
     useEffect(() => {
 
@@ -19,12 +22,15 @@ const Types = ({ pkmInfo, colors }) => {
                     type1: pkmInfo.types[0].type.name,
                     type2: pkmInfo.types[1].type.name
                 })
-                setColor(colors[pkmInfo.types[0].type.name])
+                setColor({
+                    color1: colors[pkmInfo.types[0].type.name],
+                    color2: colors[pkmInfo.types[1].type.name]
+                })
             } else {
                 setTypes({
                     type1: pkmInfo.types[0].type.name,
                 })
-                setColor(colors[pkmInfo.types[0].type.name])
+                setColor({ color1: colors[pkmInfo.types[0].type.name] })
             }
         }
     }, [pkmInfo])
@@ -34,18 +40,18 @@ const Types = ({ pkmInfo, colors }) => {
             <p className={"list-inline-item font-weight-bold text-dark mr-2"}>Tipo:</p>
             <p
                 className={`list-inline-item shadow badge badge-pill text-dark badge-primary w-25`}
-                style={{ backgroundColor: color }}
+                style={{ backgroundColor: color.color1 }}
             >{types.type1}</p>
             <p
                 className={`list-inline-item shadow badge badge-pill text-dark badge-primary w-25 ml-3`}
-                style={{ backgroundColor: color }}
+                style={{ backgroundColor: color.color2 }}
             >{types.type2}</p>
         </div>
         : <div>
             <p className={"list-inline-item font-weight-bold text-dark mr-2"}>Tipo:</p>
             <p
                 className={`list-inline-item shadow badge badge-pill text-dark badge-primary w-50`}
-                style={{ backgroundColor: color }}
+                style={{ backgroundColor: color.color1 }}
             >{types.type1}</p>
         </div>
 

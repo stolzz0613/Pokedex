@@ -4,12 +4,14 @@ import Types from "./Types";
 import MissingNo from "../assets/MissingNo.png";
 import extra from "../extra.json";
 
-const Pokemon = ({ pkm, setSpinner, error }) => {
+
+const Pokemon = ({ pkm, setSpinner, error, setModal, setModalInfo }) => {
 
     const [pkmInfo, setPkmInfo] = useState({
         sprite: "",
         name: "",
         number: "",
+        response:[]
     });
     const [color, setColor] = useState({
         color1: "",
@@ -30,7 +32,11 @@ const Pokemon = ({ pkm, setSpinner, error }) => {
         psychic: '#dfa1ed',
         flying: '#e6fafa',
         fighting: '#E6E0D4',
-        normal: '#F5F5F5'
+        normal: '#F5F5F5',
+        steel: '#cfcdd1',
+        ghost: '#a69ab3',
+        ice: '#c4faff',
+        dark: '#5b5c5c'
     };
 
     useEffect(() => {
@@ -45,7 +51,8 @@ const Pokemon = ({ pkm, setSpinner, error }) => {
                                     sprite: extra[response.data.id - 1]['imageurl'],
                                     name: response.data.name,
                                     number: response.data.id,
-                                    types: response.data.types
+                                    types: response.data.types,
+                                    response: response
                                 })
                                 if (response.data.types.length > 1) {
                                     setColor({
@@ -84,7 +91,6 @@ const Pokemon = ({ pkm, setSpinner, error }) => {
                     margin: "10px",
                     background: `linear-gradient(45deg,${color.color1}, ${color.color2})`
                 }}>
-
                 <img
                     src={pkmInfo.sprite}
                     style={{
@@ -103,6 +109,18 @@ const Pokemon = ({ pkm, setSpinner, error }) => {
                     pkmInfo={pkmInfo}
                     colors={colors}
                 />
+                <a
+                    href="!#"
+                    className="stretched-link"
+                    role="button"
+                    onClick={() => {
+                        setModal(true)
+                        setModalInfo({
+                            pkmInfo,
+                            color
+                        })
+                    }}>
+                </a>
             </div>
         </div>
     );

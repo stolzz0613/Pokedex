@@ -2,7 +2,7 @@ import React from 'react';
 import Pokemon from "./Pokemon";
 import uuid from "uuid";
 
-const List = ({ pokemon, setSpinner, setError, error }) => {
+const List = ({ pokemon, setSpinner, setError, error, setModal, setModalInfo }) => {
 
     return (
         <div className="row mt-5" >
@@ -13,6 +13,8 @@ const List = ({ pokemon, setSpinner, setError, error }) => {
                     setSpinner={setSpinner}
                     setError={setError}
                     error={error}
+                    setModal={setModal}
+                    setModalInfo={setModalInfo}
                 />
             ))}
         </div>

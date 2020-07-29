@@ -4,6 +4,7 @@ import Header from "./components/Header"
 import Form from "./components/Form";
 import List from "./components/List";
 import Spinner from "./components/Spinner";
+import Modal from "./components/Modal";
 
 function App() {
 
@@ -12,6 +13,9 @@ function App() {
   const [error, setError] = useState(false);
   const [page, setPage] = useState(0);
   const [buttons, setButtons] = useState(true);
+  const [modal, setModal] = useState(false);
+  const [modalInfo, setModalInfo] = useState({});
+
   const url = `https://pokeapi.co/api/v2/pokemon-species/?limit=20&offset=${page}`;
 
   useEffect(() => {
@@ -25,14 +29,14 @@ function App() {
         .catch(err => {
           console.log(err);
         })
-        setTimeout(() => {
-          setSpinner(false);
-        }, 2000);
+      setTimeout(() => {
+        setSpinner(false);
+      }, 2000);
       const header = document.querySelector(".header");
       header.scrollIntoView({ behavior: "smooth" });
     }
     getList();
-  }, [page,url])
+  }, [page, url])
 
   const componente =
     (spinner)
@@ -42,6 +46,8 @@ function App() {
         setSpinner={setSpinner}
         setError={setError}
         error={error}
+        setModal={setModal}
+        setModalInfo={setModalInfo}
       />
 
   const botones =
@@ -77,7 +83,7 @@ function App() {
 
 
   return (
-    <div>
+    <div style={{ position: "relative" }}>
       <Header />
       <div className="container">
         <Form
@@ -89,6 +95,13 @@ function App() {
         />
       </div>
       <div className="container mt-3 w-100">
+        {modal
+          ? <Modal
+            setModal={setModal}
+            modalInfo={modalInfo}
+            pokemon={pokemon}
+          />
+          : null}
         {componente}
       </div>
       {botones}
