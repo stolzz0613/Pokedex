@@ -11,25 +11,24 @@ const Pokemon = ({ pkm, setSpinner, error }) => {
         name: "",
         number: "",
     });
-    
-    const colors ={
-        const colors = {
-            fire: '#FDDFDF',
-            grass: '#DEFDE0',
-            electric: '#FCF7DE',
-            water: '#DEF3FD',
-            ground: '#f4e7da',
-            rock: '#d5d5d4',
-            fairy: '#fceaff',
-            poison: '#98d7a5',
-            bug: '#f8d5a3',
-            dragon: '#97b3e6',
-            psychic: '#eaeda1',
-            flying: '#F5F5F5',
-            fighting: '#E6E0D4',
-            normal: '#F5F5F5'
-        };
-    }
+    const [color, setColor] = useState("");
+
+    const colors = {
+        fire: '#FDDFDF',
+        grass: '#DEFDE0',
+        electric: '#FCF7DE',
+        water: '#DEF3FD',
+        ground: '#f4e7da',
+        rock: '#d5d5d4',
+        fairy: '#fceaff',
+        poison: '#98d7a5',
+        bug: '#f8d5a3',
+        dragon: '#97b3e6',
+        psychic: '#eaeda1',
+        flying: '#F5F5F5',
+        fighting: '#E6E0D4',
+        normal: '#F5F5F5'
+    };
 
     useEffect(() => {
         if (!error) {
@@ -45,6 +44,7 @@ const Pokemon = ({ pkm, setSpinner, error }) => {
                                     number: response.data.id,
                                     types: response.data.types
                                 })
+                                setColor(colors[response.data.types[0].type.name])
                             })
                     })
                     .catch(err => {
@@ -60,19 +60,17 @@ const Pokemon = ({ pkm, setSpinner, error }) => {
             })
             setSpinner(false)
         }
-
     }, [pkm, setSpinner, error])
 
     return (
 
         <div className="col-md-4 mx-auto">
-            <div
-                className="card shadow"
+            <div className="card shadow"
                 style={{
                     position: "relative",
                     height: "100px",
                     margin: "10px",
-                    backgroundColor:""
+                    backgroundColor: color
                 }}>
 
                 <img
