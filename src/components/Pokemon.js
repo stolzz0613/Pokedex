@@ -58,9 +58,8 @@ const Pokemon = ({ pkm, setSpinner, error }) => {
                 name: "No se encontro el pokemon",
                 number: "??"
             })
-            setSpinner(false)
         }
-    }, [pkm, setSpinner, error])
+    }, [pkm])
 
     return (
 

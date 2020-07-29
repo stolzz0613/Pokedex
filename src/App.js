@@ -19,13 +19,17 @@ function App() {
       await Axios
         .get(url)
         .then(response => {
-          setPokemon(response.data.results)
+          setPokemon(response.data.results);
+          setSpinner(true);
         })
         .catch(err => {
-          console.log(err)
+          console.log(err);
         })
+        setTimeout(() => {
+          setSpinner(false);
+        }, 2000);
       const header = document.querySelector(".header");
-      header.scrollIntoView({ behavior: "smooth" })
+      header.scrollIntoView({ behavior: "smooth" });
     }
     getList();
   }, [page,url])
