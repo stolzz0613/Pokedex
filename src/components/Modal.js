@@ -1,16 +1,18 @@
 import React from 'react';
+import Sprites from "./stats/Sprites";
+import Stats from "./stats/Stats";
 import close from "../assets/close.png"
 
 
 const Modal = ({ setModal, modalInfo }) => {
 
-    console.log(modalInfo.pkmInfo.response.data["sprites"])
+    console.log(modalInfo)
     const color = modalInfo.color
 
 
 
     return (
-        <div className="container mx-auto h-50 p-4">
+        <div className="mx-auto h-50 p-4" style={{ width: "2vm" }}>
             <div
                 className="card shadow"
                 style={{
@@ -30,24 +32,13 @@ const Modal = ({ setModal, modalInfo }) => {
                     <p className="font-weight-bold text-dark list-inline-item">{modalInfo.pkmInfo.name.toUpperCase()}</p>
                     <p className="list-inline-item text-dark" style={{ marginLeft: "10px" }}>#{modalInfo.pkmInfo.number}</p>
                 </div>
-                <div className="mx-auto">
-                    <img
-                        src={modalInfo.pkmInfo.response.data["sprites"].front_default}
-                        alt={modalInfo.pkmInfo.name}
-                    />
-                    <img
-                        src={modalInfo.pkmInfo.response.data["sprites"].back_default}
-                        alt={modalInfo.pkmInfo.name}
-                    />
-                </div>
-                <div className="mx-auto">
-                    <img
-                        src={modalInfo.pkmInfo.response.data["sprites"].front_shiny}
-                        alt={modalInfo.pkmInfo.name}
-                    />
-                    <img
-                        src={modalInfo.pkmInfo.response.data["sprites"].back_shiny}
-                        alt={modalInfo.pkmInfo.name}
+
+                <Sprites
+                    modalInfo={modalInfo}
+                />
+                <div className="mx-auto h-100 p-2" style={{ width: "90%" }}>
+                    <Stats
+                        modalInfo={modalInfo}
                     />
                 </div>
             </div>
