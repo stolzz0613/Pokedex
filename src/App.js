@@ -14,6 +14,7 @@ function App() {
   const [page, setPage] = useState(0);
   const [buttons, setButtons] = useState(true);
   const [modal, setModal] = useState(false);
+  const [evolutions, setEvolutions] = useState([]);
   const [modalInfo, setModalInfo] = useState({});
 
   const url = `https://pokeapi.co/api/v2/pokemon-species/?limit=20&offset=${page}`;
@@ -48,6 +49,7 @@ function App() {
         error={error}
         setModal={setModal}
         setModalInfo={setModalInfo}
+        setEvolutions={setEvolutions}
       />
 
   const botones =
@@ -102,7 +104,8 @@ function App() {
           ? <Modal
             setModal={setModal}
             modalInfo={modalInfo}
-            pokemon={pokemon}
+            setEvolutions={setEvolutions}
+            evolutions={evolutions}
           />
           : null}
         {componente}

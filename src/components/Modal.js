@@ -2,24 +2,25 @@ import React from 'react';
 import Sprites from "./stats/Sprites";
 import Stats from "./stats/Stats";
 import Description from "./stats/Description";
+import Evolutions from "./stats/Evolutions";
 import close from "../assets/close.png"
 
 
-const Modal = ({ setModal, modalInfo }) => {
+const Modal = ({ setModal, modalInfo, setEvolutions, evolutions }) => {
 
     const color = modalInfo.color
 
     return (
-        <div className="h-50 p-5">
+        <div className="p-3">
             <div
-                className="card p-4 shadow"
+                className="card p-3 shadow"
                 style={{
                     zIndex: "3",
                     background: `linear-gradient(45deg,${color.color1}, ${color.color2})`
                 }}>
                 <img
                     src={close}
-                    width="50px"
+                    width="20vw"
                     alt="icon"
                     type="button"
                     onClick={() => {
@@ -44,6 +45,11 @@ const Modal = ({ setModal, modalInfo }) => {
                 </div>
                 <Description
                     modalInfo={modalInfo}
+                />
+                <Evolutions
+                    modalInfo={modalInfo}
+                    evolutions={evolutions}
+                    setEvolutions={setEvolutions}
                 />
             </div>
         </div >

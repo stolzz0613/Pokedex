@@ -5,8 +5,8 @@ import MissingNo from "../assets/MissingNo.png";
 import extra from "../extra.json";
 
 
-const Pokemon = ({ pkm, setSpinner, error, setModal, setModalInfo }) => {
-   
+const Pokemon = ({ pkm, setSpinner, error, setModal, setModalInfo, setEvolutions }) => {
+
     const [pkmInfo, setPkmInfo] = useState({
         sprite: "",
         name: "",
@@ -101,13 +101,14 @@ const Pokemon = ({ pkm, setSpinner, error, setModal, setModalInfo }) => {
                     }}
                     alt={pkm.name}
                     onClick={() => {
-                        setModal(true)
+                        setModal(true);
                         setModalInfo({
                             pkmInfo,
                             color
-                        })
+                        });
                         const icon = document.querySelector(".icon");
                         icon.scrollIntoView({ behavior: "smooth" });
+                        setEvolutions([])
                     }}></img>
                 <div className="list-inline text-left ml-3 mt-2">
                     <p className="font-weight-bold list-inline-item">{pkmInfo.name.toUpperCase()}</p>

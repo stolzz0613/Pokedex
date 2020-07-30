@@ -2,8 +2,9 @@ import React, { useState, useEffect } from 'react';
 import extra from "../../extra.json";
 
 const Description = ({ modalInfo }) => {
+    
     const [description, setDescription] = useState("");
-    console.log(extra[modalInfo.pkmInfo.number - 1].weight);
+
     useEffect(() => {
         setDescription({
             description: extra[modalInfo.pkmInfo.number - 1].xdescription,
