@@ -10,9 +10,9 @@ const Modal = ({ setModal, modalInfo }) => {
     const color = modalInfo.color
 
     return (
-        <div className="h-50 p-4" style={{ width: "2vm" }}>
+        <div className="h-50 p-5">
             <div
-                className="card shadow"
+                className="card p-4 shadow"
                 style={{
                     zIndex: "3",
                     background: `linear-gradient(45deg,${color.color1}, ${color.color2})`
