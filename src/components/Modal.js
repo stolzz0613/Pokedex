@@ -27,8 +27,8 @@ const Modal = ({ setModal, modalInfo }) => {
                     }}
                 />
                 <div className="list-inline ml-3 mt-2">
-                    <p className="font-weight-bold text-dark list-inline-item">{modalInfo.pkmInfo.name.toUpperCase()}</p>
-                    <p className="list-inline-item text-dark" style={{ marginLeft: "10px" }}>#{modalInfo.pkmInfo.number}</p>
+                    <p className="font-weight-bold text-dark list-inline-item" style={{ fontSize: "4vw" }}>{modalInfo.pkmInfo.name.toUpperCase()}</p>
+                    <p className="list-inline-item text-dark" style={{ marginLeft: "10px", fontSize: "4vw" }}>#{modalInfo.pkmInfo.number}</p>
                 </div>
                 <div className="row align-items-center">
                     <div className="col-md-6">

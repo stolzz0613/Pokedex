@@ -6,12 +6,12 @@ import extra from "../extra.json";
 
 
 const Pokemon = ({ pkm, setSpinner, error, setModal, setModalInfo }) => {
-
+   
     const [pkmInfo, setPkmInfo] = useState({
         sprite: "",
         name: "",
         number: "",
-        response:[]
+        response: []
     });
     const [color, setColor] = useState({
         color1: "",
@@ -100,7 +100,15 @@ const Pokemon = ({ pkm, setSpinner, error, setModal, setModalInfo }) => {
                         height: "110px"
                     }}
                     alt={pkm.name}
-                />
+                    onClick={() => {
+                        setModal(true)
+                        setModalInfo({
+                            pkmInfo,
+                            color
+                        })
+                        const icon = document.querySelector(".icon");
+                        icon.scrollIntoView({ behavior: "smooth" });
+                    }}></img>
                 <div className="list-inline text-left ml-3 mt-2">
                     <p className="font-weight-bold list-inline-item">{pkmInfo.name.toUpperCase()}</p>
                     <p className="list-inline-item" style={{ marginLeft: "10px" }}>#{pkmInfo.number}</p>
@@ -109,18 +117,6 @@ const Pokemon = ({ pkm, setSpinner, error, setModal, setModalInfo }) => {
                     pkmInfo={pkmInfo}
                     colors={colors}
                 />
-                <a
-                    href="!#"
-                    className="stretched-link"
-                    role="button"
-                    onClick={() => {
-                        setModal(true)
-                        setModalInfo({
-                            pkmInfo,
-                            color
-                        })
-                    }}>
-                </a>
             </div>
         </div>
     );

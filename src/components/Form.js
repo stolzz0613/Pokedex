@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import pokeball from "../assets/pokeball.png"
 import Axios from "axios";
 
-const Form = ({ setPokemon, setSpinner, setError, setPage, setButtons }) => {
+const Form = ({ setPokemon, setSpinner, setError, setPage, setButtons, setModal }) => {
     let pkm = []
     const [busquedaPkm, setBusquedaPkm] = useState("");
     const url = `https://pokeapi.co/api/v2/pokemon-species/?limit=20&offset=0`;
@@ -16,15 +16,18 @@ const Form = ({ setPokemon, setSpinner, setError, setPage, setButtons }) => {
                 setPage(0);
                 setButtons(true);
                 setSpinner(true);
+                setModal(false);
             })
             .catch(err => {
-                console.log(err)
+                console.log(err);
                 setError(true);
-                setButtons(true);
+                setButtons(false);
+                setModal(false);
+                setPage(0);
             })
-            setTimeout(() => {
-                setSpinner(false);
-              }, 2000);
+        setTimeout(() => {
+            setSpinner(false);
+        }, 2000);
     }
 
     const obtenerPokemon = async () => {
@@ -38,6 +41,7 @@ const Form = ({ setPokemon, setSpinner, setError, setPage, setButtons }) => {
                 setError(false);
                 setButtons(false);
                 setSpinner(true);
+                setModal(false);
             })
             .catch(err => {
                 pkm = [];
@@ -45,12 +49,13 @@ const Form = ({ setPokemon, setSpinner, setError, setPage, setButtons }) => {
                 setPokemon(pkm);
                 setError(true);
                 setButtons(false);
+                setModal(false);
                 setPage(0);
                 console.log(err)
             })
-            setTimeout(() => {
-                setSpinner(false);
-              }, 2000);
+        setTimeout(() => {
+            setSpinner(false);
+        }, 2000);
     }
 
     const buscarPkm = e => {
@@ -79,7 +84,7 @@ const Form = ({ setPokemon, setSpinner, setError, setPage, setButtons }) => {
                     type="submit"
                     onClick={() => busquedaPkm
                         ? obtenerPokemon()
-                        : getList()}
+                        : getList()}    
                 />
             </div>
         </form >

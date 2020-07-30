@@ -9,10 +9,12 @@ const Sprites = ({modalInfo}) => {
                     <img
                         src={modalInfo.pkmInfo.response.data["sprites"].front_default}
                         alt={modalInfo.pkmInfo.name}
+                        style={{width:"15vw", height:"15vw"}}
                     />
                     <img
                         src={modalInfo.pkmInfo.response.data["sprites"].back_default}
                         alt={modalInfo.pkmInfo.name}
+                        style={{width:"15vw", height:"15vw"}}
                     />
                 </div>
             </div>
@@ -21,10 +23,12 @@ const Sprites = ({modalInfo}) => {
                     <img
                         src={modalInfo.pkmInfo.response.data["sprites"].front_shiny}
                         alt={modalInfo.pkmInfo.name}
+                        style={{width:"15vw", height:"15vw"}}
                     />
                     <img
                         src={modalInfo.pkmInfo.response.data["sprites"].back_shiny}
                         alt={modalInfo.pkmInfo.name}
+                        style={{width:"15vw", height:"15vw"}}
                     />
                 </div>
             </div>

@@ -59,7 +59,8 @@ function App() {
           onClick={() => {
             if (page === 0) return;
             const number = page - 20;
-            setPage(number)
+            setPage(number);
+            setModal(false);
           }}
         >&laquo; Atras</button>
         <button
@@ -67,7 +68,8 @@ function App() {
           className="btn btn-secondary ml-3"
           onClick={() => {
             const number = 20 + page;
-            setPage(number)
+            setPage(number);
+            setModal(false);
           }}
         >Adelante &raquo;</button>
       </div>
@@ -92,6 +94,7 @@ function App() {
           setError={setError}
           setPage={setPage}
           setButtons={setButtons}
+          setModal={setModal}
         />
       </div>
       <div className="container mt-3 w-100">
