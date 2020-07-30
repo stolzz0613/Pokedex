@@ -20,7 +20,7 @@ const Modal = ({ setModal, modalInfo, setEvolutions, evolutions }) => {
                 }}>
                 <img
                     src={close}
-                    width="20vw"
+                    width="50vw"
                     alt="icon"
                     type="button"
                     onClick={() => {
