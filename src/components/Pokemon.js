@@ -97,9 +97,10 @@ const Pokemon = ({ pkm, setSpinner, error, setModal, setModalInfo, setEvolutions
                         position: "absolute",
                         bottom: "30px",
                         right: "-40px",
-                        height: "110px"
+                        height: "110px",
                     }}
                     alt={pkm.name}
+                    className="iconSprite"
                     onClick={() => {
                         setModal(true);
                         setModalInfo({

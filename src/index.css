@@ -6,6 +6,7 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   background-color: white;
+  cursor: url('./assets/cursor.png'), default;
 }
 
 code {
@@ -20,4 +21,8 @@ code {
   text-align: center;
   width:100;
 }
+.iconSprite{
+  cursor:url('./assets/cursor1.png'), default;
+}
+
 
