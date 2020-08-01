@@ -63,6 +63,7 @@ function App() {
             const number = page - 20;
             setPage(number);
             setModal(false);
+            setPokemon([]);
           }}
         >&laquo; Atras</button>
         <button
@@ -72,6 +73,7 @@ function App() {
             const number = 20 + page;
             setPage(number);
             setModal(false);
+            setPokemon([]);
           }}
         >Adelante &raquo;</button>
       </div>

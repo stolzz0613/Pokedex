@@ -17,7 +17,7 @@ const Stats = ({ modalInfo }) => {
                             style={{ width: `${stats[0].base_stat}%` }}
                             aria-valuenow="10"
                             aria-valuemin="0"
-                            aria-valuemax="100"
+                            aria-valuemax="300"
                         >
                             {stats[0].base_stat}
                         </div>
@@ -34,7 +34,7 @@ const Stats = ({ modalInfo }) => {
                             style={{ width: `${stats[1].base_stat}%` }}
                             aria-valuenow="10"
                             aria-valuemin="0"
-                            aria-valuemax="100"
+                            aria-valuemax="300"
                         >
                             {stats[1].base_stat}
                         </div>
@@ -51,7 +51,7 @@ const Stats = ({ modalInfo }) => {
                             style={{ width: `${stats[2].base_stat}%` }}
                             aria-valuenow="10"
                             aria-valuemin="0"
-                            aria-valuemax="100"
+                            aria-valuemax="300"
                         >
                             {stats[2].base_stat}
                         </div>
@@ -68,7 +68,7 @@ const Stats = ({ modalInfo }) => {
                             style={{ width: `${stats[3].base_stat}%` }}
                             aria-valuenow="10"
                             aria-valuemin="0"
-                            aria-valuemax="100"
+                            aria-valuemax="300"
                         >
                             {stats[3].base_stat}
                         </div>
@@ -85,7 +85,7 @@ const Stats = ({ modalInfo }) => {
                             style={{ width: `${stats[4].base_stat}%` }}
                             aria-valuenow="10"
                             aria-valuemin="0"
-                            aria-valuemax="100"
+                            aria-valuemax="300"
                         >
                             {stats[4].base_stat}
                         </div>
@@ -102,7 +102,7 @@ const Stats = ({ modalInfo }) => {
                             style={{ width: `${stats[5].base_stat}%` }}
                             aria-valuenow="10"
                             aria-valuemin="0"
-                            aria-valuemax="100"
+                            aria-valuemax="300"
                         >
                             {stats[5].base_stat}
                         </div>
